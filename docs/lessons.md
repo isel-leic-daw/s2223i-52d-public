@@ -1,12 +1,4 @@
-# Lesson 0
-
-# Course introduction
-
-
-- [Github repository](https://github.com/isel-leic-daw/s2223i-51d-51n-public)
-    - [docs](https://github.com/isel-leic-daw/s2223i-51d-51n-public/tree/main/docs)
-
-## Lesson 1 - 2022-09-21
+# Lesson 1 - 2022-09-21
 
 - Course presentation
     - [_Ficha de Unidade Curricular_](https://www.isel.pt/sites/default/files/FUC_LEIC/5sem/DAW_LEIC.pdf)
@@ -35,7 +27,7 @@
     - See the `example-servlets` project on the course repository.
 
 
-## Lesson 2 - 2022-09-15
+# Lesson 2 - 2022-09-15
 
 - Inversion of Control, Dependency Injection and the Spring Context library
     - Class stereotypes.
