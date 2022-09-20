@@ -11,8 +11,6 @@ private val log = LoggerFactory.getLogger("main")
 
 /**
  * Creating a server using the Tomcat library.
- * Based on based on:
- * [https://www.eclipse.org/jetty/documentation/jetty-11/programming-guide/index.html#pg-server-http-handler-use-servlet]
  */
 const val FILTER_NAME = "example-filter"
 const val SERVLET_NAME = "example-servlet"

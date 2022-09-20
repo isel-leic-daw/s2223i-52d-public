@@ -16,10 +16,12 @@ private val log = LoggerFactory.getLogger("main")
  * [https://www.eclipse.org/jetty/documentation/jetty-11/programming-guide/index.html#pg-server-http-handler-use-servlet]
  */
 fun main() {
+
     log.info("started")
-    val server = Server(8080)
+    val server = Server(9000)
     val connector = ServerConnector(server)
     server.addConnector(connector)
+    val handler = ServletContextHandler()
     handler.addServlet(ServletHolder(ExampleServet()), "/*")
     handler.addFilter(ExampleFilter::class.java, "/*", EnumSet.of(DispatcherType.REQUEST))
     server.handler = handler
@@ -27,5 +29,7 @@ fun main() {
     server.start()
     server.join()
 }
+
+
 
 
