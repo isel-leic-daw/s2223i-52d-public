@@ -1,5 +1,11 @@
 package com.example.demo
 
+import com.example.demo.pipeline.ExampleFilter
+import org.jdbi.v3.core.Jdbi
+import org.jdbi.v3.core.kotlin.KotlinPlugin
+import org.jdbi.v3.core.kotlin.mapTo
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 import org.springframework.http.ResponseEntity
 import org.springframework.util.MultiValueMap
 import org.springframework.web.bind.annotation.*
@@ -55,4 +61,8 @@ class DemoController {
     @GetMapping("9")
     fun handler9() = URI("https://www.example.com")
 
+
+    companion object {
+        private val log: Logger = LoggerFactory.getLogger(ExampleFilter::class.java)
+    }
 }
