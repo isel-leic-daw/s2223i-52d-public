@@ -1,4 +1,4 @@
-package pt.isel.daw.tictactow.controllers.models
+package pt.isel.daw.tictactoe.controllers.models
 
 data class UserInputModel(val name : String)
 

@@ -1,9 +1,9 @@
-package pt.isel.daw.tictactow.controllers
+package pt.isel.daw.tictactoe.controllers
 
 import org.springframework.web.bind.annotation.*
-import pt.isel.daw.tictactow.controllers.models.UserInputModel
-import pt.isel.daw.tictactow.controllers.models.UserOutputModel
-import pt.isel.daw.tictactow.services.UsersService
+import pt.isel.daw.tictactoe.controllers.models.UserInputModel
+import pt.isel.daw.tictactoe.controllers.models.UserOutputModel
+import pt.isel.daw.tictactoe.services.UsersService
 
 @RestController
 class UsersController(private val usersService : UsersService) {

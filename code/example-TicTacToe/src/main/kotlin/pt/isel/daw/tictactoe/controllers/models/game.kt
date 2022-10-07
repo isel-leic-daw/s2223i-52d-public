@@ -1,4 +1,4 @@
-package pt.isel.daw.tictactow.controllers.models
+package pt.isel.daw.tictactoe.controllers.models
 
 import java.util.*
 

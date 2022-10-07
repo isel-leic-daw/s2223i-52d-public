@@ -1,11 +1,11 @@
-package pt.isel.daw.tictactow.services
+package pt.isel.daw.tictactoe.services
 
 import org.springframework.stereotype.Component
-import pt.isel.daw.tictactow.domain.Board
-import pt.isel.daw.tictactow.domain.Game
-import pt.isel.daw.tictactow.domain.play
-import pt.isel.daw.tictactow.repositories.GamesRepository
-import pt.isel.daw.tictactow.services.exceptions.NotFoundException
+import pt.isel.daw.tictactoe.domain.Board
+import pt.isel.daw.tictactoe.domain.Game
+import pt.isel.daw.tictactoe.domain.play
+import pt.isel.daw.tictactoe.repositories.GamesRepository
+import pt.isel.daw.tictactoe.services.exceptions.NotFoundException
 import java.util.*
 
 @Component

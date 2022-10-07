@@ -1,6 +1,6 @@
-package pt.isel.daw.tictactow.repositories
+package pt.isel.daw.tictactoe.repositories
 
-import pt.isel.daw.tictactow.domain.Game
+import pt.isel.daw.tictactoe.domain.Game
 import java.util.*
 
 interface GamesRepository {

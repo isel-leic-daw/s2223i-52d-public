@@ -1,4 +1,4 @@
-package pt.isel.daw.tictactow.domain
+package pt.isel.daw.tictactoe.domain
 
 data class User (
     val id : Int,

@@ -1,8 +1,8 @@
-package pt.isel.daw.tictactow.repositories.jdbi.mappers
+package pt.isel.daw.tictactoe.repositories.jdbi.mappers
 
 import org.jdbi.v3.core.mapper.ColumnMapper
 import org.jdbi.v3.core.statement.StatementContext
-import pt.isel.daw.tictactow.domain.Board
+import pt.isel.daw.tictactoe.domain.Board
 import java.sql.ResultSet
 import java.sql.SQLException
 

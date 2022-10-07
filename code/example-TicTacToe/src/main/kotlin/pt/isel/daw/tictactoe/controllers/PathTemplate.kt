@@ -1,4 +1,4 @@
-package pt.isel.daw.tictactow.controllers
+package pt.isel.daw.tictactoe.controllers
 
 object PathTemplate {
 

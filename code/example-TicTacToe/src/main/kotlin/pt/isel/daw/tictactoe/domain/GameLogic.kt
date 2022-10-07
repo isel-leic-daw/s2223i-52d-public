@@ -1,4 +1,4 @@
-package pt.isel.daw.tictactow.domain
+package pt.isel.daw.tictactoe.domain
 
 //TODO all the game play logic
 fun play(game : Game, userId: Int, l: Int, c: Int) =

@@ -1,9 +1,9 @@
-package pt.isel.daw.tictactow.repositories.jdbi
+package pt.isel.daw.tictactoe.repositories.jdbi
 
 import org.jdbi.v3.core.Jdbi
 import org.springframework.stereotype.Component
-import pt.isel.daw.tictactow.domain.User
-import pt.isel.daw.tictactow.repositories.UsersRepository
+import pt.isel.daw.tictactoe.domain.User
+import pt.isel.daw.tictactoe.repositories.UsersRepository
 
 @Component
 class JdbiUsersRepository(private val jdbi : Jdbi) : UsersRepository{

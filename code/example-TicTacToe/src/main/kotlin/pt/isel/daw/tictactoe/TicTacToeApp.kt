@@ -1,11 +1,11 @@
-package pt.isel.daw.tictactow
+package pt.isel.daw.tictactoe
 
 import org.jdbi.v3.core.Jdbi
 import org.jdbi.v3.core.kotlin.KotlinPlugin
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 import org.springframework.context.annotation.Bean
-import pt.isel.daw.tictactow.repositories.jdbi.mappers.BoardMapper
+import pt.isel.daw.tictactoe.repositories.jdbi.mappers.BoardMapper
 
 // TicTacToe simplified game implementation
 // Services and Repositories are using code and follow some of the ideas from

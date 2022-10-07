@@ -1,4 +1,4 @@
-package pt.isel.daw.tictactow.services.exceptions
+package pt.isel.daw.tictactoe.services.exceptions
 
 //TODO
 class NotFoundException : Exception() {

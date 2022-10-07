@@ -1,12 +1,12 @@
-package pt.isel.daw.tictactow.controllers
+package pt.isel.daw.tictactoe.controllers
 
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
-import pt.isel.daw.tictactow.controllers.models.BoardOutputModel
-import pt.isel.daw.tictactow.controllers.models.GameOutputModel
-import pt.isel.daw.tictactow.controllers.models.GamePlayInputModel
-import pt.isel.daw.tictactow.controllers.models.GameStartInputModel
-import pt.isel.daw.tictactow.services.GamesService
+import pt.isel.daw.tictactoe.controllers.models.BoardOutputModel
+import pt.isel.daw.tictactoe.controllers.models.GameOutputModel
+import pt.isel.daw.tictactoe.controllers.models.GamePlayInputModel
+import pt.isel.daw.tictactoe.controllers.models.GameStartInputModel
+import pt.isel.daw.tictactoe.services.GamesService
 import java.util.UUID
 
 //TODO Errors and Refactor Code

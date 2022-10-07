@@ -1,6 +1,6 @@
-package pt.isel.daw.tictactow.repositories
+package pt.isel.daw.tictactoe.repositories
 
-import pt.isel.daw.tictactow.domain.User
+import pt.isel.daw.tictactoe.domain.User
 
 interface UsersRepository {
     fun getById(id : Int) : User?
