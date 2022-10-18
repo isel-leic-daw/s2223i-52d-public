@@ -32,6 +32,7 @@ dependencies {
 	runtimeOnly("org.slf4j:slf4j-simple:2.0.0")
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	testImplementation(kotlin("test"))
 }
 
 tasks.withType<KotlinCompile> {

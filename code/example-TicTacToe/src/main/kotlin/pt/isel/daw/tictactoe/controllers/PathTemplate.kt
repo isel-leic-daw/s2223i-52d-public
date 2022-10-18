@@ -2,11 +2,11 @@ package pt.isel.daw.tictactoe.controllers
 
 object PathTemplate {
 
-    const val start = "/games"
-    const val gameById = "/games/{id}"
-    const val play = "games/{id}/play"
+    const val START = "/games"
+    const val GAME_BY_ID = "/games/{id}"
+    const val PLAY = "games/{id}"
 
-    const val userById = "/users/{id}"
-    const val createUser = "/users"
+    const val USER_BY_ID = "/users/{id}"
+    const val CREATE_USER = "/users"
 
 }

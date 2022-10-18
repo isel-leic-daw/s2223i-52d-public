@@ -8,13 +8,13 @@ import pt.isel.daw.tictactoe.services.UsersService
 @RestController
 class UsersController(private val usersService : UsersService) {
 
-    @GetMapping(PathTemplate.userById)
+    @GetMapping(PathTemplate.USER_BY_ID)
     fun getById(@PathVariable id : Int) : UserOutputModel {
         val user = usersService.getById(id)
         return UserOutputModel(user.id,user.username)
     }
 
-    @PostMapping(PathTemplate.createUser)
+    @PostMapping(PathTemplate.CREATE_USER)
     fun insert(@RequestBody user : UserInputModel) {
         TODO("Not yet implemented")
     }
