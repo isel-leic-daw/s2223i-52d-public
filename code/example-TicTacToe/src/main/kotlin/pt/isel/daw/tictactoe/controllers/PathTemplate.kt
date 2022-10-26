@@ -1,5 +1,7 @@
 package pt.isel.daw.tictactoe.controllers
 
+import org.springframework.web.util.UriTemplate
+
 object PathTemplate {
 
     const val START = "/games"
@@ -8,5 +10,6 @@ object PathTemplate {
 
     const val USER_BY_ID = "/users/{id}"
     const val CREATE_USER = "/users"
+
 
 }
