@@ -1,6 +1,7 @@
 package pt.isel.daw.tictactoe.controllers
 
 import ProblemJsonModel
+import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import pt.isel.daw.tictactoe.controllers.models.BoardOutputModel
@@ -35,10 +36,10 @@ class GamesController (private val gameService : GamesService) {
     }
 
     @PostMapping(PathTemplate.START)
-    fun startGame(@RequestBody s : GameStartInputModel){
+    fun startGame(@RequestBody s : GameStartInputModel) : ResponseEntity<GameOutputModel>{
         val game = gameService.start(s.userIdX,s.userIdO)
         val gameOutModel = GameOutputModel(game.id, BoardOutputModel(game.board.toString()), game.playerX, game.playerO)
-        ResponseEntity.status(201).body(gameOutModel)
+        return ResponseEntity.status(201).contentType(MediaType.APPLICATION_JSON).body(gameOutModel)
     }
 
 
