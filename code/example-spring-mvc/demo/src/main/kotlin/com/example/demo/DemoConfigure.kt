@@ -14,16 +14,16 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 class DemoConfigure : WebMvcConfigurer{
 
     override fun addArgumentResolvers(resolvers: MutableList<HandlerMethodArgumentResolver>) {
-        resolvers.add(ClientIpExampleArgumentResolver())
+        //resolvers.add(ClientIpExampleArgumentResolver())
     }
 
     override fun configureMessageConverters(converters: MutableList<HttpMessageConverter<*>>) {
-        converters.add(0,  UriToQrCodeMessageConverter())
+        //converters.add(0,  UriToQrCodeMessageConverter())
     }
 
     override fun addInterceptors(registry: InterceptorRegistry) {
-        registry.addInterceptor(ExampleInterceptor())
-        registry.addInterceptor(WatchInterceptor())
+        //registry.addInterceptor(ExampleInterceptor())
+        //registry.addInterceptor(WatchInterceptor())
     }
 
 }
