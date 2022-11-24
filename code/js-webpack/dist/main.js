@@ -1,0 +1,1 @@
+(()=>{"use strict";console.log("In module 1"),console.log("In module 2"),console.log("In index.js"),console.log(5),console.log(-1)})();

@@ -20,6 +20,8 @@ function module2(require, exports){
 
 }
 
+
+
 const modules = {
     './module1.js' : module1,
     './module2.js' : module2,
@@ -29,11 +31,20 @@ const modules = {
 const exports = {}
 
 
-function request(moduleName){
+function require(moduleName){
+    const moduleExports = exports[moduleName]
+    if(moduleExports) return moduleExports
 
+    //load module
+    const moduleFunction = modules[moduleName]
+    if(!moduleFunction) throw new Error('Module not found')
 
+    const newExports = {}
+    exports[moduleName]=newExports
+    moduleFunction(require, newExports)
+
+    return newExports
 }
-
 
 
 require('./index.js')
