@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react'
 import { createRoot } from 'react-dom/client'
 
-
-
 function Fetch({uri}:{uri:string}){
     
     const [text, setText] = React.useState('Loading....')

@@ -8,13 +8,8 @@ module.exports = {
         path: path.resolve(__dirname, 'dist')
     },
     devServer: {
-        static: path.resolve(__dirname, 'dist'),
-        historyApiFallback: true,
-        proxy: {
-            '/api': 'http://localhost:9000 '
-         }   
+        static: path.resolve(__dirname, 'dist')
     },
-
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
       },
