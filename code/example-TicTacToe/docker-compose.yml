@@ -1,15 +1,20 @@
+volumes:
+  data:
+
 version: '3.3'
 services:
   postgredb:
-      container_name: postgredb
-      hostname: postgredb
-      image: postgres
-      environment:
-        - POSTGRES_USER=postgres
-        - POSTGRES_PASSWORD=postgres
-        - POSTGRES_DB=postgres
-      ports:
-        - 5432:5432
+    container_name: postgredb
+    hostname: postgredb
+    image: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    ports:
+      - 5432:5432
+    volumes:
+      - data:/var/lib/postgresql
 
   tictactoe-service-1:
     container_name: tictactoe-service-1
