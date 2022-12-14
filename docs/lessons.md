@@ -236,10 +236,17 @@
 
 ## Lesson 8 - 2022-10-14
 
-- Handling exceptions in String.
-- Spring ControllerAdvice
-- Siren Representation Examples-
-- Spring Tests
+- Handling exceptions on Spring MVC
+    - The _controller advice_ concept.
+    - Using exceptions vs. return types.
+
+- Testing strategies for Spring MVC based applications.
+    - Unit tests without using the Spring context.
+    - Integration tests using the HTTP interface and an auto-started application.
+    - Tests using the Spring context, with bean overriding or bean mocking.
+        - Property injections.
+
+- Siren Representation Examples
 
 
 ## Lesson 9 - 2022-10-19
@@ -249,4 +256,224 @@
 ## Lesson 10 - 2022-10-21
 
 - Project development support
+
+
+## Lesson 12 - 2022-11-02
+
+- Phase 1 project presentations.
+
+## Lesson 13 - 2022-11-04
+
+- Phase 1 project presentations.
+
+## Lesson 14 - 2022-11-09
+
+- The Browser as an application execution platform.
+    - Document loading.
+    - JavaScript loading and execution environment.
+        - Immediate execution versys deferred execution.
+        - Loading of multiple JavaScript files.
+            - Behaviour without using a module system.
+                - Single namespace for all the top-level symbols in the file.
+                    - Clashing between symbols
+            - Behaviour using the [ECMAScript Modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)
+                - Using `<script src="..." type="module"></script>`.
+                - Importing a module from another module using the `import` statement.
+                    - Individual requests for each module.
+                    - Single execution of the module top-level code.
+                - One HTTP request per imported module.
+                    - An applicaition can have many modules, both created for the application or from used libraries.
+                    - A module is a mechanism to organize and isolate code. We should not need to reduce the module count for efficiency purposes.
+                    - Solution: bundling multiple _source_ modules into a single (or few) _load_ level modules. I.e. the source code module organization is not the same as the browser-loaded module organization.
+                        - This means that now there is a build process required, since the JavaScript source files are not same as the JavaScript files provided to the browser.
+            - Creating the build process.
+                - Create an NPM project
+                    - Why:
+                        - To have a build automation tool.
+                        - To run node-based tools, such as the "bundler"
+                        - to include third-party libraries available on NPM
+                    - `npm init`
+                    - `npm install webpack-cli --save-dev`
+                        - `webpack-cli` is a Command Line Interface (CLI) application to do the bundling
+                        - `--save-dev` to save the dependency on `package.json` as a development dependency, i.e., a dependency used to develop/build the project and not to run the result of the project.
+                    - Set `package.json` `scripts/build` to call `webpack`.
+                - Copy source files to the `src` folder (by default webpack uses that as the JavaScript files location).
+                - Rename the entry point module to `index.js` (again, it's the default webpack assumption).
+                - Run `npm run build` to run the `build` script, which calls the `webpack` CLI tool.
+                    - This will create a `dist` folder with the bundle file, called `main.js`.
+                    - Change the `script` element to use `dist/main.js` and observe the result.
+                    - Observe the `dist/main.js` contents and be marvelled.
+                - Using third-party libraries
+                    - Run `npm i urijs --save`
+                    - Use `URITemplate` imported from 'urijs' in one of the modules.
+                    - Observe the `dist/main.js` contents again.
+                - Configuring the webpack behavior
+                    - Create the `webpack.config.js` file.
+                    ```
+                    module.exports = {
+                        mode: 'development'
+                    }
+                    ```
+                    - Observe the `dist/main.js` contents yet again.
+                - Automating the build and HTML serving process
+                    - `npm i webpack-dev-server --save-dev`.
+                    - Set `package.json` `scripts/start` to call `webpack serve`.
+                    - `webpack serve` keeps running and
+                        - Rebuilding the project when changes are detected.
+                        - Serving the updated bundle.
+                    - IMPORTANT: this is a development-time tool. In production, the bundled file will not be served using Webpack.
+
+- The [TypeScript language](https://www.typescriptlang.org/)
+    - JavaScript plus static type information.
+    - Using in on our development workflow.
+        - `npm i typescript ts-loader --save-dev`.
+        - Edit `webpack.config.js` to configure a _loader_.
+        - Create the file `tsconfig.json` to configure the TypeScript compilation.
+    - The type information in the source files is *checked* and *erased* on the compiled files.
+    - The type system
+        - Primitive types.
+        - Type annotations and inference.
+        - Array types.
+        - Function types.
+        - Object types and type aliases.
+        - Union types, type narrowing, literal types, and descriminated union types.
+
+        
+## Lesson 15 - 2022-11-11
+
+- The [Document Object Model](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) (DOM).
+    - Implementing a `createElement` to create a DOM node subtree with both elements and text.
+        - TypeScript signatures.
+        - Composability and declarative design.
+    - Using the term DOM to mean both the API and the `document` content.
+- The JSX syntax extension to JavaScript
+    - Using the JSX with the previously developed `createElement` function.
+
+
+## Lesson 16 - 2022-11-16
+
+- Introduction to the [React](https://reactjs.org/) library
+    - [Beta documentation](https://beta.reactjs.org/)
+    - [Virtual DOM](https://reactjs.org/docs/faq-internals.html)
+        - In the React programming model, the application code doesn't mutate the DOM content. Instead, it produces the currently desired state for the DOM context and the React engine changes the DOM to reflect that. 
+            - This DOM mutation process is called [reconciliation](https://reactjs.org/docs/reconciliation.html).
+        - The desired state is expressed by creating a subtree of virtual DOM elements, via the `React.createElement` function (directly or using JSX).
+        - These "Virtual DOM" trees are never mutated directly by application code. When the UI must change, a new tree (or sub-tree) is created.
+        - The virtual DOM elements use both _primitive_ HTML elements and React components.
+        - List of elements and element keys.
+    - React components    
+        - A React component is a function from a properties object (often called "props") to a Virtual DOM subtree, represented by its root element.
+            - These functions are never called by application code. Instead, application code only uses them to create elements, which contain the (non-evaluated) component, a properties object, a the list of child elements.
+            - Since the component function execution is out of application control, it should never produce side-effects, except if using React provided APIs (e.g. `useEffect`).
+                - Namely the execution may happen multiple times.
+        - When a component returns a tree containing components, it's the React execution infra-structure that will execute those components to _expand_ the tree.
+        - React components, elements and instances.
+            - [Old article, still using classes to create components](https://reactjs.org/blog/2015/12/18/react-components-elements-and-instances.html).
+            - The [`useState`](https://beta.reactjs.org/apis/react/useState#usestate) hook to fetch and mutate state.
+            - Component mounting, unmounting, and state.    
+                - ["Preserving and Resetting State"](https://beta.reactjs.org/learn/preserving-and-resetting-state).
+    - Sincronization with the outside world (effects) and the [`useEffect`](https://beta.reactjs.org/apis/react/useEffect#useeffect) hook.
+        - Effect setup and cancellation.
+        - Effect dependencies.
+        - ["You Might Not Need an Effect"](https://beta.reactjs.org/learn/you-might-not-need-an-effect)
+
+
+## Lesson 17 - 2022-11-18
+
+- Continuing with the previous lesson.
+
+## Lesson 18 - 2022-11-23
+- Continuing with the study of the React library.
+    - [Forms and controller components](https://reactjs.org/docs/forms.html)
+
+- Client-side routing
+    - Associating paths to UI sections.
+        - Supporting browser native navigation.
+        - Supporting deep-linking and book-marking.
+    - The browser's [history API](https://developer.mozilla.org/en-US/docs/Web/API/History).
+        - The `history` object.
+            - The `back`, `forward`, and `go` functions.
+            - The `pushState` function.
+            - The `popstate` event.
+
+- The [React Router](https://reactrouter.com/en/main) library.
+- [Main concepts](https://reactrouter.com/en/main/start/concepts).
+
+## Lesson 19 - 2022-11-25
+
+- Continuing with the previous lesson.
+
+## Lesson 20 - 2022-11-28
+
+-  The [React Router](https://reactrouter.com/en/main) library (continuation).
+    - Creating a router using the `createBrowserRouter` function and using the router via the `RouterProvider` component.
+        - Route objects and the `path` and `element` properties.
+    - Client-side navigation.
+        - The `Link` element.
+        - The [`Navigate`](https://reactrouter.com/en/main/components/navigate) element.
+        - The [`useNavigate`](https://reactrouter.com/en/main/hooks/use-navigate) hook.
+    - Routes using path templates.
+        - Path template syntax - [https://reactrouter.com/en/main/route/route#dynamic-segments](https://reactrouter.com/en/main/route/route#dynamic-segments).
+        - Accessing the path template variables inside componentes via the [`useParams`](https://reactrouter.com/en/main/route/route#dynamic-segments) hook.
+   
+## Lesson 21 - 2022-11-30
+
+ - [React context](https://beta.reactjs.org/learn/passing-data-deeply-with-context).
+        - Avoid passing properties through all the middle levels.
+        - Providing information to components from the outside without using component properties.
+        - Create context using `createContext`.
+        - Make a context available to child components using the `TheContext.Provider` component.
+        - Use the context using `useContext(TheContext)`.
+        - [Use cases](https://beta.reactjs.org/learn/passing-data-deeply-with-context#use-cases-for-context).
+- Project development support
+
+## Lesson 22 - 2022-12-02
+
+- React Router
+    - Nested routing.
+        - [Children](https://reactrouter.com/en/main/route/route#children) routes inside a route object.
+        - The [`Outlet`](https://reactrouter.com/en/main/route/route#children) element to render nested routes.
+    - [Loaders](https://reactrouter.com/en/main/route/loader).
+        - [Route loaders](https://reactrouter.com/en/main/route/route#loader).
+            - Loader arguments.
+                - `request` object.
+                - `params` object.
+            - Loader results.
+                - `Response` objects.
+                - Throwing exceptions and `errorElement` fields.
+                - Redirecting via the `redirect` function.
+        - Accessing the _loaded_ data via the `userLoaderData` hook.
+- Project development support
+
+## Lesson 23 - 2022-12-07
+
+- [React reducers](https://beta.reactjs.org/learn/extracting-state-logic-into-a-reducer).
+        - Reducer: function from State and an Action to a new a new State (`(State, Action) => State`)
+        - Declare a reducer via the `useReducer` function
+            - Providing the initial state and the reducer function.
+            - Receiving the current state and a function to send ("dispatch") actions.
+    - Using context and reducers - ["Scaling Up with Reducer and Context"](https://beta.reactjs.org/learn/scaling-up-with-reducer-and-context)
+- Project development support
+
+## Lesson 24 - 2022-12-09
+
+- Examples - React
+- Project development support
+
+## Lesson 25 - 2022-12-14
+
+- Examples - React
+- Project development support
+
+## Lesson 26 - 2022-12-16
+
+- Server Side Events
+- Render - Memo and useCallbak
+
+
+
+
+
+
+
 
