@@ -418,13 +418,13 @@
    
 ## Lesson 21 - 2022-11-30
 
- - [React context](https://beta.reactjs.org/learn/passing-data-deeply-with-context).
-        - Avoid passing properties through all the middle levels.
-        - Providing information to components from the outside without using component properties.
-        - Create context using `createContext`.
-        - Make a context available to child components using the `TheContext.Provider` component.
-        - Use the context using `useContext(TheContext)`.
-        - [Use cases](https://beta.reactjs.org/learn/passing-data-deeply-with-context#use-cases-for-context).
+- [React context](https://beta.reactjs.org/learn/passing-data-deeply-with-context).
+    - Avoid passing properties through all the middle levels.
+    - Providing information to components from the outside without using component properties.
+    - Create context using `createContext`.
+    - Make a context available to child components using the `TheContext.Provider` component.
+    - Use the context using `useContext(TheContext)`.
+    - [Use cases](https://beta.reactjs.org/learn/passing-data-deeply-with-context#use-cases-for-context).
 - Project development support
 
 ## Lesson 22 - 2022-12-02
@@ -448,10 +448,10 @@
 ## Lesson 23 - 2022-12-07
 
 - [React reducers](https://beta.reactjs.org/learn/extracting-state-logic-into-a-reducer).
-        - Reducer: function from State and an Action to a new a new State (`(State, Action) => State`)
-        - Declare a reducer via the `useReducer` function
-            - Providing the initial state and the reducer function.
-            - Receiving the current state and a function to send ("dispatch") actions.
+    - Reducer: function from State and an Action to a new a new State (`(State, Action) => State`)
+    - Declare a reducer via the `useReducer` function
+    - Providing the initial state and the reducer function.
+    - Receiving the current state and a function to send ("dispatch") actions.
     - Using context and reducers - ["Scaling Up with Reducer and Context"](https://beta.reactjs.org/learn/scaling-up-with-reducer-and-context)
 - Project development support
 
