@@ -10,6 +10,7 @@ module.exports = {
     devServer: {
         static: path.resolve(__dirname, 'dist'),
         historyApiFallback: true,
+        compress: false,
         proxy: {
             '/api': 'http://localhost:9000 '
          }   
